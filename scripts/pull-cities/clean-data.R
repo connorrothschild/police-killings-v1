@@ -9,9 +9,8 @@ clean_data <- data %>%
          `Cause of death` = str_replace(`Cause of death`, ",.*",""),
          Race = str_to_title(Race),
          `Cause of death` = str_to_title(`Cause of death`),
-         `Symptoms of mental illness?` = str_to_title(`Symptoms of mental illness?`))
-
-table(data$`Armed Status`)  
+         `Symptoms of mental illness?` = str_to_title(`Symptoms of mental illness?`),
+         ID = row_number())
 
 write.csv(clean_data, "../../data/cleaned_data.csv")
 
