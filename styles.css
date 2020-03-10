@@ -51,6 +51,7 @@ body {
 	border-radius: 8px;
 	pointer-events: none;
 	border: 1px solid #e0e0e0;
+	display: block;
 }
 
 .dropdown {
