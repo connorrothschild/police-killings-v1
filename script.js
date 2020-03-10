@@ -5,9 +5,9 @@
 // this relies on a clean list of (non-duplicated) city names.
 // from https://stackoverflow.com/questions/36804916/create-elements-for-datalist-in-d3
 d3
-	.csv('data/city_data.csv')
+	.csv('data/department_data.csv')
 	.row(function(d) {
-		return d.CityState;
+		return d['Agency responsible for death'];
 	})
 	.get(function(rows) {
 		d3
@@ -79,8 +79,8 @@ var svg = d3.select('svg').attr('width', w).attr('height', h).call(responsivefy)
 // create empty csv
 var csv;
 
-var selected_loc = 'Houston, TX';
-var selected_city = selected_loc.split(',')[0];
+var selected_loc = 'Houston Police Department (TX)';
+// var selected_city = selected_loc.split(',')[0];
 
 // 	data is from https://mappingpoliceviolence.org/
 // add this to footnote probably https://mappingpoliceviolence.org/aboutthedata
@@ -90,7 +90,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 
 	// define data according to selected_loc
 	data = data.filter(function(d) {
-		return d.CityState == selected_loc;
+		return d['Agency responsible for death'] == selected_loc;
 	});
 
 	// number of rows. this is for responsive header text defined later
@@ -120,8 +120,8 @@ d3.csv('data/cleaned_data.csv', function(data) {
 	};
 
 	locFunction = function(selected_loc) {
-		if (selected_loc.trim() == '') {
-			return 'Houston, TX';
+		if (selected_loc.trim() == '()') {
+			return 'Houston Police Department (TX)';
 		} else {
 			return selected_loc;
 		}
@@ -291,9 +291,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 				// https://stackoverflow.com/questions/34454246/d3-js-conditional-tooltip-html
 				if (d.Name == 'Name withheld by police') {
 					return (
-						'Since 2013, ' +
-						selected_city +
-						' police have killed ' +
+						'Since 2013, the ' +
+						selected_loc +
+						' has killed ' +
 						'<u>' +
 						length +
 						personFunction(length) +
@@ -303,9 +303,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					);
 				} else {
 					return (
-						'Since 2013, ' +
-						selected_city +
-						' police have killed ' +
+						'Since 2013, the ' +
+						selected_loc +
+						' has killed ' +
 						'<u>' +
 						length +
 						personFunction(length) +
@@ -564,13 +564,13 @@ d3.csv('data/cleaned_data.csv', function(data) {
 
 		// redefine selected location, city, etc./
 		var selected_loc = selected_loc;
-		var selected_city = selected_loc.split(',')[0];
+		// var selected_city = selected_loc.split(',')[0];
 		console.log(selected_loc);
-		console.log(selected_city);
+		// console.log(selected_city);
 
 		// filter the data
 		data = csv.filter(function(d) {
-			return d.CityState === selected_loc;
+			return d['Agency responsible for death'] === selected_loc;
 		});
 		console.table(data);
 
@@ -598,9 +598,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 		d3
 			.select('.subtitle')
 			.html(
-				'Since 2013, ' +
-					selected_city +
-					' police have killed ' +
+				'Since 2013, the ' +
+					selected_loc +
+					' has killed ' +
 					'<u>' +
 					length +
 					personFunction(length) +
@@ -695,9 +695,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					// https://stackoverflow.com/questions/34454246/d3-js-conditional-tooltip-html
 					if (d.Name == 'Name withheld by police') {
 						return (
-							'Since 2013, ' +
-							selected_city +
-							' police have killed ' +
+							'Since 2013, the' +
+							selected_loc +
+							' has killed ' +
 							'<u>' +
 							length +
 							personFunction(length) +
@@ -707,9 +707,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 						);
 					} else {
 						return (
-							'Since 2013, ' +
-							selected_city +
-							' police have killed ' +
+							'Since 2013, then' +
+							selected_loc +
+							' has killed ' +
 							'<u>' +
 							length +
 							personFunction(length) +
@@ -943,9 +943,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					// https://stackoverflow.com/questions/34454246/d3-js-conditional-tooltip-html
 					if (d.Name == 'Name withheld by police') {
 						return (
-							'Since 2013, ' +
-							selected_city +
-							' police have killed ' +
+							'Since 2013, the ' +
+							selected_loc +
+							' has killed ' +
 							'<u>' +
 							length +
 							personFunction(length) +
@@ -955,9 +955,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 						);
 					} else {
 						return (
-							'Since 2013, ' +
-							selected_city +
-							' police have killed ' +
+							'Since 2013, the' +
+							selected_loc +
+							' has killed ' +
 							'<u>' +
 							length +
 							personFunction(length) +
