@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+  <title>Police Killings in the U.S. | Connor Rothschild</title>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <link rel="icon" href="https://raw.githubusercontent.com/connorrothschild/connorrothschild.github.io/master/me/favicon.ico">
+  <link href = "styles.css" rel = "stylesheet">
+
+</head>
+
+<div>
+
+ <article>
+
+	<!-- sticky top navigation bar -->
+	<div class = "topnav">
+	  <a href = "https://connorrothschild.github.io">
+	    <img src="https://github.com/connorrothschild/connorrothschild.github.io/blob/master/_assets/images/headshotCircle.png?raw=true" width = "40" height = "40">
+	  </a>
+
+	<a href = "https://connorrothschild.github.io">
+	  <span style = "font-weight:normal">Connor Rothschild</span>
+	  <br>
+	  <span style = "font-weight:lighter;color:#343434">Back to home</span>
+	</a></div>
+
+	<div>
+      <p class = "titleText">Police Killings in 
+      	<input list="cityState" id="locSelector" name="locSelector" class = "dropdown" placeholder = "Insert City Here"/>
+		<datalist id="cityState" class = "dropdown">
+		<!-- options are defined here, but they are defined in a function below
+			e.g. <option value="Springfield, MO"> -->
+		</datalist>
+  </p>
+      <p class = "subtitle">Since 2013, Houston police have killed <u>84 people.</u></p>
+      <p class = "thirdtitle">Click for more information on an incident.</p>
+  </div>
+
+    <div id="toolbar">
+      <button id="all" class="button active">All</button>
+      <button id="Race" class="button">By Race</button>
+      <!-- <button id="Age" class="button">By Age</button> -->
+      <button id="Sex" class="button">By Sex</button>
+      <button id="Armed Status" class="button">By Armed Status</button>
+      <button id="Symptoms of mental illness?" class="button">By Mental Illness</button>
+      <button id="Cause of death" class="button">By Cause of Death</button>
+    </div>
+
+<div>
+     <svg></svg>
+</div>
+
+  <!-- <footer>
+     	<b>Note:</b> This tool itself does not make any claims about police violence. I encourage you to read the attached stories and draw your own conclusions. 
+     	<br>Data was cleaned in Excel and R, and visualized using D3.js. Find the code <a href="https://github.com/connorrothschild/D3.js/blob/master/police-killings/index.html" target="_blank">here</a>.
+     	<br><br>
+     
+     	<b>Source:</b> <a href="https://mappingpoliceviolence.org/" target="_blank">Mapping Police Violence.</a> For more information on the data, visit MPV's <a href="https://mappingpoliceviolence.org/aboutthedata" target="_blank">About page</a>.
+
+ </footer> -->
+
+ </article>
+</div>
+
+  <script src = "script.js">
+  </script>
+</body>	
