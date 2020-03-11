@@ -100,6 +100,18 @@ d3.csv('data/cleaned_data.csv', function(data) {
 	// number of rows. this is for responsive header text defined later
 	length = data.length;
 
+	chargeStrength = function(length) {
+		if (length > 120) {
+			return -5;
+		} else if (length > 100) {
+			return -10;
+		} else if (length > 60) {
+			return -15;
+		} else {
+			return -20;
+		}
+	};
+
 	// functions based on length etc, which change circle parameters, text, etc. according to length (number of people)
 
 	// i should use a switch statement but its 1am
@@ -233,7 +245,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 				return d.r;
 			})
 		)
-		.force('charge', d3.forceManyBody().strength(-10))
+		.force('charge', d3.forceManyBody().strength(chargeStrength(length)))
 		.force('y', d3.forceY().y(h / 2.25))
 		.force('x', d3.forceX().x(w / 2))
 		.on('tick', ticked);
@@ -650,7 +662,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					return d.r;
 				})
 			)
-			.force('charge', d3.forceManyBody().strength(-10))
+			.force('charge', d3.forceManyBody().strength(chargeStrength(length)))
 			.force('y', d3.forceY().y(h / 2.25))
 			.force('x', d3.forceX().x(w / 2))
 			.on('tick', ticked);
