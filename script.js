@@ -52,9 +52,9 @@ function responsivefy(svg) {
 
 w = window.innerWidth * 0.9;
 // if width is > 1000 (desktop), position near center, if mobile, position near top
-h = w > 1000 ? window.innerHeight * 0.6 : window.innerHeight * 0.3;
+// h = w > 1000 ? window.innerHeight * 0.6 : window.innerHeight * 0.3;
 // static:
-// h = window.innerHeight * 0.6;
+h = window.innerHeight * 0.6;
 
 console.log('Width: ' + window.innerWidth);
 
@@ -74,8 +74,8 @@ var color = d3
 	.range([ '#BE3137', '#FFC600', '#59B359', '#4E070C', '#7B48AD', '#7B48AD', '#E96200', '#5F96CE' ]);
 
 // define some forceDiagram parameters
-var centerScale = d3.scalePoint().padding(1).range([ 0, w ]);
-var forceStrength = 0.15;
+var centerScale = d3.scalePoint().padding(0.8).range([ 0, w ]);
+var forceStrength = 0.2;
 
 // define svg
 var svg = d3.select('svg').attr('width', w).attr('height', h).call(responsivefy);
@@ -106,7 +106,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 	radiusFunction = function(length) {
 		if (window.innerWidth < 1000) {
 			console.log('Small screen');
-			if (length > 100) {
+			if (length > 120) {
+				return window.innerWidth / 100;
+			} else if (length > 100) {
 				return window.innerWidth / 80;
 			} else if (length > 80) {
 				return window.innerWidth / 75;
@@ -231,7 +233,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 				return d.r;
 			})
 		)
-		.force('charge', d3.forceManyBody().strength(-20))
+		.force('charge', d3.forceManyBody().strength(-10))
 		.force('y', d3.forceY().y(h / 2.25))
 		.force('x', d3.forceX().x(w / 2))
 		.on('tick', ticked);
@@ -373,7 +375,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 				.transition()
 				.delay(150)
 				.attr('r', function(d, i) {
-					return 45;
+					return radiusFunction(length) * 3;
 				}); // change the radius
 		})
 		.on('mouseleave', function() {
@@ -648,7 +650,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					return d.r;
 				})
 			)
-			.force('charge', d3.forceManyBody())
+			.force('charge', d3.forceManyBody().strength(-10))
 			.force('y', d3.forceY().y(h / 2.25))
 			.force('x', d3.forceX().x(w / 2))
 			.on('tick', ticked);
@@ -778,7 +780,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					.transition()
 					.delay(150)
 					.attr('r', function(d, i) {
-						return 45;
+						return radiusFunction(length) * 3;
 					}); // change the radius
 			})
 			.on('mouseleave', function() {
@@ -1022,7 +1024,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 			.on('mouseenter', function() {
 				// select element in current context
 				d3.select(this).moveToFront().transition().attr('r', function(d, i) {
-					return 45;
+					return radiusFunction(length) * 3;
 				});
 			})
 			// set back
