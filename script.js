@@ -50,9 +50,11 @@ function responsivefy(svg) {
 	}
 }
 
-// var w = window.innerWidth * 0.9, h = window.innerHeight * .4;
 w = window.innerWidth * 0.9;
-h = window.innerHeight * 0.6;
+// if width is > 1000 (desktop), position near center, if mobile, position near top
+h = w > 1000 ? window.innerHeight * 0.6 : window.innerHeight * 0.3;
+// static:
+// h = window.innerHeight * 0.6;
 
 console.log('Width: ' + window.innerWidth);
 
