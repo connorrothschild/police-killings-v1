@@ -490,9 +490,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 				return scale(d);
 			})
 			.attr('y', labelPos)
-			.attr('transform', 'translate(-70,-18)')
-			.attr('width', 140)
-			.attr('height', 25)
+			.attr('transform', 'translate(-55,-14)')
+			.attr('width', 110)
+			.attr('height', 20)
 			.style('fill', '#E5E5E3')
 			.style('opacity', 1);
 		// .style('stroke-width', 0.5)
@@ -858,9 +858,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					return scale(d);
 				})
 				.attr('y', labelPos)
-				.attr('transform', 'translate(-70,-18)')
-				.attr('width', 140)
-				.attr('height', 25)
+				.attr('transform', 'translate(-55,-14)')
+				.attr('width', 110)
+				.attr('height', 20)
 				.style('fill', '#E5E5E3')
 				.style('opacity', 1);
 			// .style('stroke-width', 0.5)
