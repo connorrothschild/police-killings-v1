@@ -494,9 +494,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 			.attr('width', 140)
 			.attr('height', 25)
 			.style('fill', '#E5E5E3')
-			.style('opacity', 1)
-			.style('stroke-width', 0.5)
-			.style('stroke', 'black');
+			.style('opacity', 1);
+		// .style('stroke-width', 0.5)
+		// .style('stroke', 'black');
 
 		rects.moveToFront();
 
@@ -862,9 +862,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 				.attr('width', 140)
 				.attr('height', 25)
 				.style('fill', '#E5E5E3')
-				.style('opacity', 1)
-				.style('stroke-width', 0.5)
-				.style('stroke', 'black');
+				.style('opacity', 1);
+			// .style('stroke-width', 0.5)
+			// .style('stroke', 'black');
 
 			rects.moveToFront();
 
