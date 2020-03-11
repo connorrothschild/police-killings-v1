@@ -14,7 +14,7 @@ body {
 	margin-top: 5px;
 	min-width: 130px;
 	padding: 5px 5px;
-	cursor: poMontserrat;
+	cursor: pointer;
 	text-align: center;
 	font-size: 13px;
 	border: 1px solid #e0e0e0;
@@ -39,7 +39,7 @@ body {
 	/* font-size: 12px; */
 	font-family: 'Montserrat', sans-serif;
 	border-radius: 8px;
-	poMontserrat-events: none;
+	pointer-events: none;
 	border: 1px solid #e0e0e0;
 	display: block;
 }
