@@ -59,7 +59,7 @@ body {
 	padding-left: 10px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	font-size: 30px;
+	font-size: 22px;
 	background-color: white;
 	/*background-color: #f2f2f2;*/
 	border-top-style: none;
@@ -77,19 +77,19 @@ a {
 }
 
 .titleText {
-	font-size: 30px;
+	font-size: 22px;
 	margin: 15px 25px;
 	font-weight: normal;
 	text-align: center;
 }
 .subtitle {
-	font-size: 22px;
+	font-size: 16px;
 	margin: 0px 25px;
 	font-weight: normal;
 	text-align: center;
 }
 .thirdtitle {
-	font-size: 16px;
+	font-size: 14px;
 	margin: 10px 25px;
 	font-weight: normal;
 	color: #1b1b1b;
