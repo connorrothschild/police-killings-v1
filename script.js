@@ -51,8 +51,10 @@ function responsivefy(svg) {
 }
 
 // var w = window.innerWidth * 0.9, h = window.innerHeight * .4;
-var w = window.innerWidth * 0.9,
-	h = window.innerHeight * 0.6;
+w = window.innerWidth * 0.9;
+h = window.innerHeight * 0.6;
+
+console.log('Width: ' + window.innerWidth);
 
 // map colors to race
 var color = d3
@@ -100,22 +102,44 @@ d3.csv('data/cleaned_data.csv', function(data) {
 
 	// i should use a switch statement but its 1am
 	radiusFunction = function(length) {
-		if (length > 100) {
-			return h / 50;
-		} else if (length > 80) {
-			return h / 45;
-		} else if (length > 60) {
-			return h / 40;
-		} else if (length > 40) {
-			return h / 35;
-		} else if (length > 20) {
-			return h / 30;
-		} else if (length > 10) {
-			return h / 25;
-		} else if (length > 5) {
-			return h / 15;
-		} else if (length <= 5) {
-			return h / 10;
+		if (window.innerWidth < 1000) {
+			console.log('Small screen');
+			if (length > 100) {
+				return window.innerWidth / 80;
+			} else if (length > 80) {
+				return window.innerWidth / 75;
+			} else if (length > 60) {
+				return window.innerWidth / 70;
+			} else if (length > 40) {
+				return window.innerWidth / 65;
+			} else if (length > 20) {
+				return window.innerWidth / 50;
+			} else if (length > 10) {
+				return window.innerWidth / 45;
+			} else if (length > 5) {
+				return window.innerWidth / 35;
+			} else if (length <= 5) {
+				return window.innerWidth / 30;
+			}
+		} else {
+			console.log('Big screen');
+			if (length > 100) {
+				return h / 50;
+			} else if (length > 80) {
+				return h / 45;
+			} else if (length > 60) {
+				return h / 40;
+			} else if (length > 40) {
+				return h / 35;
+			} else if (length > 20) {
+				return h / 30;
+			} else if (length > 10) {
+				return h / 25;
+			} else if (length > 5) {
+				return h / 15;
+			} else if (length <= 5) {
+				return h / 10;
+			}
 		}
 	};
 
