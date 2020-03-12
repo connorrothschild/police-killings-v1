@@ -139,6 +139,9 @@ a {
 		text-decoration: none;
 		font-family: 'Montserrat', sans-serif;
 	}
+	.title {
+		font-size: 8px;
+	}
 }
 
 /* header {
