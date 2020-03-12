@@ -331,9 +331,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 				// https://stackoverflow.com/questions/34454246/d3-js-conditional-tooltip-html
 				if (d.Name == 'Name withheld by police') {
 					return (
-						'Since 2013, the ' +
+						'From 2013-2019, the ' +
 						selected_loc +
-						' has killed ' +
+						' killed ' +
 						'<u>' +
 						length +
 						personFunction(length) +
@@ -343,9 +343,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					);
 				} else {
 					return (
-						'Since 2013, the ' +
+						'From 2013-2019, the ' +
 						selected_loc +
-						' has killed ' +
+						' killed ' +
 						'<u>' +
 						length +
 						personFunction(length) +
@@ -638,9 +638,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 		d3
 			.select('.subtitle')
 			.html(
-				'Since 2013, the ' +
+				'From 2013-2019, the ' +
 					selected_loc +
-					' has killed ' +
+					' killed ' +
 					'<u>' +
 					length +
 					personFunction(length) +
@@ -735,9 +735,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					// https://stackoverflow.com/questions/34454246/d3-js-conditional-tooltip-html
 					if (d.Name == 'Name withheld by police') {
 						return (
-							'Since 2013, the' +
+							'From 2013-2019, the' +
 							selected_loc +
-							' has killed ' +
+							' killed ' +
 							'<u>' +
 							length +
 							personFunction(length) +
@@ -747,9 +747,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 						);
 					} else {
 						return (
-							'Since 2013, then' +
+							'From 2013-2019, then' +
 							selected_loc +
-							' has killed ' +
+							' killed ' +
 							'<u>' +
 							length +
 							personFunction(length) +
@@ -983,9 +983,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					// https://stackoverflow.com/questions/34454246/d3-js-conditional-tooltip-html
 					if (d.Name == 'Name withheld by police') {
 						return (
-							'Since 2013, the ' +
+							'From 2013-2019, the ' +
 							selected_loc +
-							' has killed ' +
+							' killed ' +
 							'<u>' +
 							length +
 							personFunction(length) +
@@ -995,9 +995,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 						);
 					} else {
 						return (
-							'Since 2013, the' +
+							'From 2013-2019, the' +
 							selected_loc +
-							' has killed ' +
+							' killed ' +
 							'<u>' +
 							length +
 							personFunction(length) +
