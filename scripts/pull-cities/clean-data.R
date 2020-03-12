@@ -1,9 +1,11 @@
+library(tidyverse)
 # clean
 
 data <- readxl::read_excel("../../data/uncleaned_data.xlsx")
 
 clean_data <- data %>% 
   mutate(Year = lubridate::year(Date),
+         `Agencies responsible for death` = `Agency responsible for death`,
          `Agency responsible for death` = str_replace(`Agency responsible for death`, ",.*",""),
          `Agency responsible for death` = paste0(`Agency responsible for death`, " (", State, ")"),
          `Cause of death` = str_replace(`Cause of death`, ",.*",""),

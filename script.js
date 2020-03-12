@@ -416,7 +416,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					' killed by ' + // He was killed by
 					d['Cause of death'].toLowerCase().replace(',', ' and') + //gunshot and taser
 					' by the ' +
-					d['Agency responsible for death'] + // by the Springfield Police Department
+					d['Agencies responsible for death'] + // by the Springfield Police Department
 						' on ' +
 						dateFunction(d.Date) +
 						'.'
@@ -821,7 +821,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 						' killed by ' + // He was killed by
 						d['Cause of death'].toLowerCase().replace(',', ' and') + //gunshot and taser
 						' by the ' +
-						d['Agency responsible for death'] + // by the Springfield Police Department
+						d['Agencies responsible for death'] + // by the Springfield Police Department
 							' on ' +
 							dateFunction(d.Date) +
 							'.'
