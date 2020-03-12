@@ -139,10 +139,6 @@ a {
 		text-decoration: none;
 		font-family: 'Montserrat', sans-serif;
 	}
-	.button.active {
-		background: #000;
-		color: #fff;
-	}
 }
 
 /* header {
