@@ -5,7 +5,7 @@
 // this relies on a clean list of (non-duplicated) city names.
 // from https://stackoverflow.com/questions/36804916/create-elements-for-datalist-in-d3
 d3
-	.csv('data/department_data.csv')
+	.csv('https://raw.githubusercontent.com/connorrothschild/police-killings/master/data/department_data.csv')
 	.row(function(d) {
 		return d['Agency responsible for death'];
 	})
@@ -88,7 +88,9 @@ var selected_loc = 'Houston Police Department (TX)';
 
 // 	data is from https://mappingpoliceviolence.org/
 // add this to footnote probably https://mappingpoliceviolence.org/aboutthedata
-d3.csv('data/cleaned_data.csv', function(data) {
+d3.csv('https://raw.githubusercontent.com/connorrothschild/police-killings/master/data/cleaned_data.csv', function(
+	data
+) {
 	// put all data in a csv (for later filtering)
 	csv = data;
 

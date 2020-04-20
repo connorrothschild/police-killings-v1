@@ -1,7 +1,27 @@
 library(tidyverse)
 # clean
 
+# data <- readxl::read_excel("../../data/uncleaned_ARCHIVE.xlsx")
+
+library(RCurl)
+url <- "https://mappingpoliceviolence.org/s/MPVDatasetDownload.xlsx"
+download.file(url, destfile = "../../data/uncleaned_data.xlsx")
+
 data <- readxl::read_excel("../../data/uncleaned_data.xlsx")
+
+data <- data %>% 
+  rename("Date" = `Date of Incident (month/day/year)`,
+         "Link" = `Link to news article or photo of official document`,
+         "Armed Status" = `Unarmed`, 
+         "Age" = `Victim's age` , 
+         "Race" = `Victim's race`, 
+         "Sex" = `Victim's gender`, 
+         "Image" = `URL of image of victim`, 
+         "Name" = `Victim's name`) %>% 
+  mutate(Zipcode = as.character(Zipcode),
+         `Body Camera (Source: WaPo)` = as.logical(`Body Camera (Source: WaPo)`),
+         `WaPo ID (If included in WaPo database)` = as.logical(`WaPo ID (If included in WaPo database)`)) %>% 
+  arrange(Date)
 
 clean_data <- data %>% 
   mutate(Year = lubridate::year(Date),
