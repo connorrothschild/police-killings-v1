@@ -1,13 +1,12 @@
 library(tidyverse)
+library(RCurl)
+
 # clean
 
-# data <- readxl::read_excel("../../data/uncleaned_ARCHIVE.xlsx")
-
-library(RCurl)
 url <- "https://mappingpoliceviolence.org/s/MPVDatasetDownload.xlsx"
-download.file(url, destfile = "../../data/uncleaned_data.xlsx")
+download.file(url, destfile = "../data/uncleaned_data.xlsx")
 
-data <- readxl::read_excel("../../data/uncleaned_data.xlsx")
+data <- readxl::read_excel("../data/uncleaned_data.xlsx")
 
 data <- data %>% 
   rename("Date" = `Date of Incident (month/day/year)`,
@@ -34,7 +33,7 @@ clean_data <- data %>%
          `Symptoms of mental illness?` = str_to_title(`Symptoms of mental illness?`),
          ID = row_number())
 
-write.csv(clean_data, "../../data/cleaned_data.csv")
+write.csv(clean_data, "../data/cleaned_data.csv")
 
 # should be 75
 # clean_data %>% filter(`Agency responsible for death` == "New York Police Department (NY)")
