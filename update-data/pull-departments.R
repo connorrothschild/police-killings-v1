@@ -1,10 +1,8 @@
 library(tidyverse)
 
-data <- readr::read_csv("../data/cleaned_data.csv")
+source('clean-data.R')
 
-# data %>% 
-#   group_by(`Agency responsible for death`, State) %>% 
-#   summarise(n()) %>% View()
+data <- readr::read_csv("../data/cleaned_data.csv")
 
 departments <- data %>% 
   distinct(`Agency responsible for death`)

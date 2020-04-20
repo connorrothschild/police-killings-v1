@@ -1,8 +1,6 @@
 library(tidyverse)
 library(RCurl)
 
-# clean
-
 url <- "https://mappingpoliceviolence.org/s/MPVDatasetDownload.xlsx"
 download.file(url, destfile = "../data/uncleaned_data.xlsx")
 
@@ -35,5 +33,4 @@ clean_data <- data %>%
 
 write.csv(clean_data, "../data/cleaned_data.csv")
 
-# should be 75
-# clean_data %>% filter(`Agency responsible for death` == "New York Police Department (NY)")
+source('pull-departments.R')
