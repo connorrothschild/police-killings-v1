@@ -222,11 +222,11 @@ d3.csv('https://raw.githubusercontent.com/connorrothschild/police-killings/maste
 	];
 
 	dateFunction = function(date_str) {
-		temp_date = date_str.split('/');
-		return months[Number(temp_date[0] - 1)] + ' ' + temp_date[1] + ', 20' + temp_date[2];
+		temp_date = date_str.split('-');
+		return months[Number(temp_date[1] - 1)] + ' ' + temp_date[2] + ', ' + temp_date[0];
 	};
 
-	//console.log(dateFunction("12/6/18"))
+	console.log(dateFunction('2020-03-22'));
 
 	var radius = radiusFunction(length);
 
@@ -237,7 +237,7 @@ d3.csv('https://raw.githubusercontent.com/connorrothschild/police-killings/maste
 		d.y = h / 2;
 	});
 
-	console.table(data);
+	// console.table(data);
 
 	var simulation = d3
 		.forceSimulation(data)
