@@ -1,6 +1,6 @@
 library(tidyverse)
 
-source('clean-data.R')
+# source('clean-data.R')
 
 data <- readr::read_csv("../data/cleaned_data.csv")
 
