@@ -2,9 +2,9 @@ library(tidyverse)
 library(RCurl)
 
 url <- "https://mappingpoliceviolence.org/s/MPVDatasetDownload.xlsx"
-download.file(url, destfile = "../data/uncleaned_data.xlsx")
+download.file(url, destfile = here::here("data/uncleaned_data.xlsx"))
 
-data <- readxl::read_excel("../data/uncleaned_data.xlsx")
+data <- readxl::read_excel(here::here("data/uncleaned_data.xlsx"))
 
 data <- data %>% 
   rename("Date" = `Date of Incident (month/day/year)`,
@@ -31,6 +31,6 @@ clean_data <- data %>%
          `Symptoms of mental illness?` = str_to_title(`Symptoms of mental illness?`),
          ID = row_number())
 
-write.csv(clean_data, "../data/cleaned_data.csv")
+write.csv(clean_data, here::here("data/cleaned_data.csv"))
 
-source('pull-departments.R')
+source(here::here('update-data/pull-departments.R'))
