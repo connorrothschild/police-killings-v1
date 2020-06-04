@@ -238,6 +238,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 	csv = data;
 
 	var stateSelector = document.getElementById('stateText');
+	var stateSelectorOptions = document.getElementById('stateSelector');
 	var departmentSelector = document.getElementById('departmentSelector');
 
 	d3.select('#departmentSelector').on('change', function() {
@@ -264,6 +265,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 		document.getElementById('departmentSelector').value = '';
 		departmentSelector.style.color = 'grey';
 		departmentSelector.style.opacity = '.8';
+
+		// finally, on state select, create a variable for the long state name, not abbreviation
+		longStateName = stateSelectorOptions.options[stateSelectorOptions.selectedIndex].text;
 
 		var selected_loc = this.value;
 		applyStateFilter(selected_loc);
@@ -804,8 +808,9 @@ d3.csv('data/cleaned_data.csv', function(data) {
 		d3
 			.select('.subtitle')
 			.html(
-				'From 2013-2019, the ' +
-					selected_loc +
+				'From 2013-2019, ' +
+					'police in ' +
+					longStateName +
 					' killed ' +
 					'<u>' +
 					length +
