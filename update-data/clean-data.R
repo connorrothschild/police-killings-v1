@@ -22,8 +22,9 @@ data <- data %>%
 
 clean_data <- data %>% 
   mutate(Year = lubridate::year(Date),
+         `Agency responsible for death` = ifelse(is.na(`Agency responsible for death`), 'Unknown', `Agency responsible for death`),
          `Agencies responsible for death` = `Agency responsible for death`,
-         `Agency responsible for death` = str_replace(`Agency responsible for death`, 
+         `Agency responsible for death` = str_replace_all(`Agency responsible for death`, 
                                                       ", ", 
                                                       replacement = paste0(" (", State, "), ")),
          `Agency responsible for death` = paste0(`Agency responsible for death`, " (", State, ")"),
@@ -33,6 +34,6 @@ clean_data <- data %>%
          `Symptoms of mental illness?` = str_to_title(`Symptoms of mental illness?`),
          ID = row_number())
 
-write.csv(clean_data, here::here("data/cleaned_data.csv"))
+write.csv(clean_data, here::here("data/cleaned_data.csv"), row.names = FALSE)
 
 source(here::here('update-data/pull-departments.R'))

@@ -7,7 +7,10 @@ data <- readxl::read_excel(here::here("data/uncleaned_data.xlsx"))
 listed <- data %>% 
   select(`Agency responsible for death`, State) %>% 
   filter(complete.cases(`Agency responsible for death`)) %>% 
-  mutate(`Agency responsible for death` = str_replace(`Agency responsible for death`, 
+  mutate(`Agency responsible for death` = ifelse(is.na(`Agency responsible for death`), 
+                                                 'Unknown', 
+                                                 `Agency responsible for death`),
+         `Agency responsible for death` = str_replace_all(`Agency responsible for death`, 
                                                       ", ", 
                                                       replacement = paste0(" (", State, "), ")),
          `Agency responsible for death` = paste0(`Agency responsible for death`, " (", State, ")")) %>% 
@@ -20,4 +23,4 @@ long <- tidyr::unnest(listed, all_agencies) %>%
 departments <- long %>% 
   distinct(all_agencies)
 
-write.csv(departments, here::here("data/department_data.csv"))
+write.csv(departments, here::here("data/department_data.csv"), row.names = FALSE)

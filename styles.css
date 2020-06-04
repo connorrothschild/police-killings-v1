@@ -1,13 +1,11 @@
 body {
 	margin: 0;
-	/* position: fixed; */
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	font-family: 'Montserrat', sans-serif;
 	background-color: white;
-	/* background-color: #f1f2f6; */
 }
 
 .button {
@@ -59,8 +57,13 @@ body {
 	border-bottom-style: medium;
 	border-bottom-width: 2px;
 	border-bottom-color: black;
-	min-width: 350px;
 	font-weight: 100;
+	width: 350px;
+}
+
+.mini {
+	font-size: 1em;
+	width: 150px;
 }
 
 a {
@@ -91,6 +94,11 @@ a {
 
 .title {
 	font-size: 11px;
+}
+
+#stateText {
+	color: grey;
+	opacity: .8;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -130,7 +138,8 @@ a {
 		border-bottom-style: medium;
 		border-bottom-width: 2px;
 		border-bottom-color: black;
-		min-width: 350px;
+		/* min-width: fit-content; */
+		/* display: inline-block; */
 		font-weight: 100;
 	}
 
