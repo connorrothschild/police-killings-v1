@@ -59,7 +59,7 @@ body {
 	border-bottom-style: medium;
 	border-bottom-width: 2px;
 	border-bottom-color: black;
-	min-width: 250px;
+	min-width: 350px;
 	font-weight: 100;
 }
 
@@ -73,12 +73,14 @@ a {
 	font-weight: normal;
 	text-align: center;
 }
+
 .subtitle {
 	font-size: 16px;
 	margin: 0px 25px;
 	font-weight: normal;
 	text-align: center;
 }
+
 .thirdtitle {
 	font-size: 14px;
 	margin: 10px 25px;
@@ -98,12 +100,14 @@ a {
 		font-weight: normal;
 		text-align: center;
 	}
+
 	.subtitle {
 		font-size: 14px;
 		margin: 0px 25px;
 		font-weight: normal;
 		text-align: center;
 	}
+
 	.thirdtitle {
 		font-size: 11px;
 		margin: 10px 25px;
@@ -111,6 +115,7 @@ a {
 		color: #1b1b1b;
 		text-align: center;
 	}
+
 	.dropdown {
 		text-align-last: left;
 		padding-left: 10px;
@@ -125,9 +130,10 @@ a {
 		border-bottom-style: medium;
 		border-bottom-width: 2px;
 		border-bottom-color: black;
-		min-width: 250px;
+		min-width: 350px;
 		font-weight: 100;
 	}
+
 	.button {
 		margin-top: 5px;
 		min-width: 50px;
@@ -139,6 +145,7 @@ a {
 		text-decoration: none;
 		font-family: 'Montserrat', sans-serif;
 	}
+
 	.title {
 		font-size: 8px;
 	}

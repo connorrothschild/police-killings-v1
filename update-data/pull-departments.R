@@ -4,7 +4,14 @@ library(tidyverse)
 
 data <- readr::read_csv(here::here("data/cleaned_data.csv"))
 
-departments <- data %>% 
-  distinct(`Agency responsible for death`)
+listed <- data %>% 
+  select(`Agencies responsible for death`) %>% 
+  mutate(all_agencies = as.list(strsplit(`Agencies responsible for death`, ", ")))
+
+long <- tidyr::unnest(listed, all_agencies) %>% 
+  filter(complete.cases(.))
+
+departments <- long %>% 
+  distinct(all_agencies)
 
 write.csv(departments, here::here("data/department_data.csv"))
