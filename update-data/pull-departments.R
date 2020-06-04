@@ -2,11 +2,17 @@ library(tidyverse)
 
 # source('clean-data.R')
 
-data <- readr::read_csv(here::here("data/cleaned_data.csv"))
+data <- readxl::read_excel(here::here("data/uncleaned_data.xlsx"))
 
 listed <- data %>% 
-  select(`Agencies responsible for death`) %>% 
-  mutate(all_agencies = as.list(strsplit(`Agencies responsible for death`, ", ")))
+  select(`Agency responsible for death`, State) %>% 
+  filter(complete.cases(`Agency responsible for death`)) %>% 
+  mutate(`Agency responsible for death` = str_replace(`Agency responsible for death`, 
+                                                      ", ", 
+                                                      replacement = paste0(" (", State, "), ")),
+         `Agency responsible for death` = paste0(`Agency responsible for death`, " (", State, ")")) %>% 
+  mutate(all_agencies = as.list(strsplit(`Agency responsible for death`, ", "))) %>% 
+  select(all_agencies)
 
 long <- tidyr::unnest(listed, all_agencies) %>% 
   filter(complete.cases(.))
