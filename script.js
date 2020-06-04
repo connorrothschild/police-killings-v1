@@ -117,7 +117,13 @@ radiusFunction = function(length) {
 		}
 	} else {
 		console.log('Big screen');
-		if (length > 100) {
+		if (length > 1000) {
+			return h / 150;
+		} else if (length > 500) {
+			return h / 100;
+		} else if (length > 250) {
+			return h / 75;
+		} else if (length > 100) {
 			return h / 50;
 		} else if (length > 80) {
 			return h / 45;
@@ -236,7 +242,8 @@ d3.csv('data/cleaned_data.csv', function(data) {
 
 	d3.select('#departmentSelector').on('change', function() {
 		// on selecting a department, undo anything and change css for state selector
-		// stateSelector.selectedIndex = -1;
+
+		document.getElementById('stateSelector').selectedIndex = 0;
 		stateSelector.style.color = 'grey';
 		stateSelector.style.opacity = '.8';
 
@@ -254,7 +261,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 		stateSelector.style.opacity = '1';
 
 		// and restore css of this selector!
-		// departmentSelector.innerHTML = '-1';
+		document.getElementById('departmentSelector').value = '';
 		departmentSelector.style.color = 'grey';
 		departmentSelector.style.opacity = '.8';
 

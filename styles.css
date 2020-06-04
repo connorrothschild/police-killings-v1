@@ -101,6 +101,10 @@ a {
 	opacity: .8;
 }
 
+select:invalid {
+	color: gray;
+}
+
 @media only screen and (max-width: 1000px) {
 	.titleText {
 		font-size: 18px;
