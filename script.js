@@ -24,7 +24,7 @@ d3
 			});
 	});
 
-console.clear();
+// console.clear();
 
 function responsivefy(svg) {
 	// get container + svg aspect ratio
@@ -54,7 +54,7 @@ function responsivefy(svg) {
 w = window.innerWidth * 0.9;
 h = window.innerHeight * 0.6;
 
-console.log('Width: ' + window.innerWidth);
+// console.log('Width: ' + window.innerWidth);
 
 // map colors to race
 var color = d3
@@ -95,7 +95,7 @@ chargeStrength = function(length) {
 // i should use a switch statement but its 1am
 radiusFunction = function(length) {
 	if (window.innerWidth < 1000) {
-		console.log('Small screen');
+		// console.log('Small screen');
 		if (length > 120) {
 			return window.innerWidth / 100;
 		} else if (length > 100) {
@@ -116,7 +116,7 @@ radiusFunction = function(length) {
 			return window.innerWidth / 30;
 		}
 	} else {
-		console.log('Big screen');
+		// console.log('Big screen');
 		if (length > 1000) {
 			return h / 150;
 		} else if (length > 500) {
@@ -291,7 +291,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 		data = csv.filter(function(d) {
 			return d['Agency responsible for death'].includes(selected_loc);
 		});
-		console.table(data);
+		// console.table(data);
 		// console.log(data.length);
 
 		// redefine length, radius
@@ -620,7 +620,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 				// Get the id of the button
 				var buttonId = button.attr('id');
 
-				console.log(buttonId);
+				// console.log(buttonId);
 				// Toggle the bubble chart based on
 				// the currently clicked button.
 				splitBubbles(buttonId);
@@ -770,15 +770,15 @@ d3.csv('data/cleaned_data.csv', function(data) {
 		// redefine selected location, city, etc./
 		var selected_loc = selected_loc;
 		// var selected_city = selected_loc.split(',')[0];
-		console.log(selected_loc);
+		// console.log(selected_loc);
 		// console.log(selected_city);
 
 		// filter the data
 		data = csv.filter(function(d) {
 			return d.State == selected_loc;
 		});
-		console.table(data);
-		console.log(data.length);
+		// console.table(data);
+		// console.log(data.length);
 
 		// redefine length, radius
 		var length = data.length;
@@ -1025,17 +1025,11 @@ d3.csv('data/cleaned_data.csv', function(data) {
 				})
 			);
 
-			console.log(
-				data.map(function(d) {
-					return d[byVar];
-				})
-			);
-
 			if (byVar == 'all') {
-				console.log('Grouping together...');
+				// console.log('Grouping together...');
 				groupBubbles();
 			} else {
-				console.log('Splitting up...');
+				// console.log('Splitting up...');
 				showTitles(byVar, centerScale);
 			}
 
@@ -1114,7 +1108,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 				// Get the id of the button
 				var buttonId = button.attr('id');
 
-				console.log(buttonId);
+				// console.log(buttonId);
 				// Toggle the bubble chart based on
 				// the currently clicked button.
 				splitBubbles(buttonId);
