@@ -22,6 +22,8 @@ data <- data %>%
 
 clean_data <- data %>% 
   mutate(Year = lubridate::year(Date),
+         # manually adding image of Shelly Porter III, per family request
+         `Image` = ifelse(Name == "Shelly Porter III", "https://i.imgur.com/64RKdEw.jpg", Image),
          `Agency responsible for death` = ifelse(is.na(`Agency responsible for death`), 'Unknown', `Agency responsible for death`),
          `Agencies responsible for death` = `Agency responsible for death`,
          `Agency responsible for death` = str_replace_all(`Agency responsible for death`, 
