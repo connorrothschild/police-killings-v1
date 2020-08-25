@@ -9,7 +9,7 @@ data <- readxl::read_excel(here::here("data/uncleaned_data.xlsx"))
 data <- data %>% 
   rename("Date" = `Date of Incident (month/day/year)`,
          "Link" = `Link to news article or photo of official document`,
-         "Armed Status" = `Unarmed`, 
+         "Armed Status" = `Unarmed/Did Not Have an Actual Weapon`, 
          "Age" = `Victim's age` , 
          "Race" = `Victim's race`, 
          "Sex" = `Victim's gender`, 
@@ -35,6 +35,7 @@ clean_data <- data %>%
          `Cause of death` = str_to_title(`Cause of death`),
          `Symptoms of mental illness?` = str_to_title(`Symptoms of mental illness?`),
          ID = row_number())
+
 
 write.csv(clean_data, here::here("data/cleaned_data.csv"), row.names = FALSE)
 
