@@ -177,9 +177,7 @@ pronounFunction = function(sex) {
 };
 
 ageFunction = function(age) {
-	if (isNaN(age)) {
-		return 'an unknown age ';
-	} else if (age == 0) {
+	if (isNaN(age) | (age == 0)) {
 		return 'an unknown age ';
 	} else {
 		return 'a ' + age + ' year old ';
@@ -210,7 +208,6 @@ dateFunction = function(date_str) {
 };
 
 var radius = radiusFunction(length);
-console.log(radius);
 
 var body = d3.select('body');
 
@@ -421,7 +418,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 					// https://stackoverflow.com/questions/34454246/d3-js-conditional-tooltip-html
 					if (d.Name == 'Name withheld by police') {
 						return (
-							'From 2013-2020, the' +
+							'From 2013-2020, the ' +
 							selected_loc +
 							' killed ' +
 							'<u>' +
@@ -433,7 +430,7 @@ d3.csv('data/cleaned_data.csv', function(data) {
 						);
 					} else {
 						return (
-							'From 2013-2020, then' +
+							'From 2013-2020, the ' +
 							selected_loc +
 							' killed ' +
 							'<u>' +
@@ -659,10 +656,13 @@ d3.csv('data/cleaned_data.csv', function(data) {
 
 		circles
 			.transition(t)
+			// .attr('fill', function(d, i) {
+			// 	return color(d.Race);
+			// })
+			// .style('stroke', 'black')
 			.attr('fill', function(d) {
 				return 'url(#' + d.ID + ')';
 			})
-			//// debug: .attr("r", function(d){ return d.r*5; })
 			.style('stroke', function(d, i) {
 				return color(d.Race);
 			})
