@@ -24,8 +24,6 @@ d3
 			});
 	});
 
-// console.clear();
-
 function responsivefy(svg) {
 	// get container + svg aspect ratio
 	var container = d3.select(svg.node().parentNode),
@@ -53,8 +51,6 @@ function responsivefy(svg) {
 
 w = window.innerWidth * 0.9;
 h = window.innerHeight * 0.6;
-
-// console.log('Width: ' + window.innerWidth);
 
 // map colors to race
 var color = d3
